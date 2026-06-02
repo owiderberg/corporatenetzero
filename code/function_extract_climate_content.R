@@ -62,7 +62,6 @@ CLIMATE_KEYWORDS <- list(
     "nationally determined contribution(s)?",
     "NDC(s)?",
     "Paris (Agreement|accord|goal(s)?|target(s)?)",
-    "COP\\d{0,2}",
     "climate action plan",
     "net[- ]zero pledge"
   ),
@@ -73,7 +72,6 @@ CLIMATE_KEYWORDS <- list(
     "climate finance",
     "carbon (tax|price|pricing|levy)",
     "emissions trading scheme",
-    "ETS",
     "renewable energy (target|policy|mandate)",
     "just transition",
     "climate risk(s)?"
@@ -258,16 +256,16 @@ extract_climate_from_pdf <- function(pdf_path, words_each = 100L) {
 # ------------------------------------------------------------
 
 # -- From a PDF (requires read_pdf.R)
-source("code/function_read_parse_clean_pdf_2.R")
-results <- extract_climate_from_pdf("data/2024_amazon_report.pdf")
+# source("code/function_read_parse_clean_pdf_2.R")
+# results <- extract_climate_from_pdf("data/2024_amazon_report.pdf")
 
 # -- From a plain text string
 # text    <- readr::read_file("article.txt")
 # results <- extract_climate_context(text, source_name = "article.txt")
 
 # -- Inspect results
-results |> count(category, sort = TRUE)
-results |> filter(category == "net_zero") |> pull(context)
+# results |> count(category, sort = TRUE)
+# results |> filter(category == "net_zero") |> pull(context)
 
 # -- Save to CSV
 # readr::write_csv(results, "climate_contexts.csv")
